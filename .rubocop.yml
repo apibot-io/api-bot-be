@@ -1,0 +1,10 @@
+inherit_from: .rubocop_todo.yml
+
+AllCops: 
+  NewCops: enable
+
+Bundler/OrderedGems:
+  Enabled: False
+
+Style/ClassAndModuleChildren:
+  EnforcedStyle: compact
