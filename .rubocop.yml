@@ -3,8 +3,12 @@ inherit_from: .rubocop_todo.yml
 AllCops: 
   NewCops: enable
 
+Style/Documentation:
+  Enabled: false
+
 Bundler/OrderedGems:
   Enabled: False
 
 Style/ClassAndModuleChildren:
   EnforcedStyle: compact
+
