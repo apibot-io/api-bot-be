@@ -10,9 +10,10 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_01_02_033859) do
+ActiveRecord::Schema.define(version: 2021_01_02_082309) do
 
   # These are extensions that must be enabled in order to support this database
+  enable_extension "pgcrypto"
   enable_extension "plpgsql"
 
   create_table "headers", force: :cascade do |t|
@@ -40,10 +41,11 @@ ActiveRecord::Schema.define(version: 2021_01_02_033859) do
     t.index ["mock_order"], name: "index_mocks_on_mock_order", unique: true
   end
 
-  create_table "resources", force: :cascade do |t|
+  create_table "resources", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
     t.string "name", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.index ["name"], name: "index_resources_on_name", unique: true
   end
 
   add_foreign_key "headers", "mocks", on_delete: :cascade

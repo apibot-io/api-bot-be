@@ -1,10 +1,10 @@
 class Mock < ApplicationRecord
   # Validate
-  validates :status_code, presence: true
-  validates :request_method, presence: true
-  validates :content_type, presence: true
-  validates :route_path, presence: true
-  validates :name, presence: true, uniqueness: { case_sensitive: false }
+  # validates :status_code, presence: true
+  # validates :request_method, presence: true
+  # validates :content_type, presence: true
+  # validates :route_path, presence: true
+  # validates :name, presence: true, uniqueness: { case_sensitive: false }
 
   # Scope
   default_scope { order(mock_order: :asc) }
