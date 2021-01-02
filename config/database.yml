@@ -8,8 +8,6 @@ development:
   <<: *default
   database: api_bot_dev
   host: db
-  username: postgres
-  password: postgres
 
 test:
   <<: *default
