@@ -1,4 +1,4 @@
-class Api::V0::MocksController < ApplicationController
+class Api::V0::MocksController < Api::V0::ApiController
   # This is the one and only action mapped to each mock route
   def serve_mock
     mock = Mock.find(params[:mock_id])
