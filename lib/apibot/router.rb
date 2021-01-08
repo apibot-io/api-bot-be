@@ -8,8 +8,8 @@ class Apibot::Router
       end
     end
 
-    def reload_routes
-      # Apibot::Application.routes_reloader.reload!
+    def reload_routers
+      ApiBotBackend::Application.routes_reloader.reload!
     end
 
     protected

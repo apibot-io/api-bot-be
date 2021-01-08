@@ -8,9 +8,7 @@ class Api::V0::ResourcesController < Api::V0::ApiController
   end
 
   def create
-    @resource = Resource.new(resource_params)
-
-    if @resource.save
+    if Resources::Creator.call(resource_params)
       render json: @resource, status: :created
     else
       render json: @resource.errors, status: :unprocessable_entity
@@ -36,6 +34,6 @@ class Api::V0::ResourcesController < Api::V0::ApiController
   end
 
   def resource_params
-    params.permit(:name)
+    params.permit(:resource_name, fields: [])
   end
 end

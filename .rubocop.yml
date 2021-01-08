@@ -12,3 +12,5 @@ Bundler/OrderedGems:
 Style/ClassAndModuleChildren:
   EnforcedStyle: compact
 
+Lint/MissingSuper:
+  Enabled: false

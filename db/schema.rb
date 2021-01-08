@@ -10,11 +10,22 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_01_02_082309) do
+ActiveRecord::Schema.define(version: 2021_01_07_125857) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "pgcrypto"
   enable_extension "plpgsql"
+
+  create_table "fields", force: :cascade do |t|
+    t.string "name", null: false
+    t.integer "physical_type", null: false
+    t.integer "logical_type"
+    t.string "default_value"
+    t.uuid "resource_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["resource_id"], name: "index_fields_on_resource_id"
+  end
 
   create_table "headers", force: :cascade do |t|
     t.string "name", null: false
@@ -48,5 +59,6 @@ ActiveRecord::Schema.define(version: 2021_01_02_082309) do
     t.index ["name"], name: "index_resources_on_name", unique: true
   end
 
+  add_foreign_key "fields", "resources", on_delete: :cascade
   add_foreign_key "headers", "mocks", on_delete: :cascade
 end

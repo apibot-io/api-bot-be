@@ -1,19 +1,20 @@
 require_relative "boot"
 
 require "rails"
-# Pick the frameworks you want:
 require "active_model/railtie"
 require "active_job/railtie"
 require "active_record/railtie"
-require "active_storage/engine"
 require "action_controller/railtie"
 require "action_mailer/railtie"
-require "action_mailbox/engine"
-require "action_text/engine"
 require "action_view/railtie"
-require "action_cable/engine"
-# require "sprockets/railtie"
 require "rails/test_unit/railtie"
+
+# Not used yet
+# require "active_storage/engine"
+# require "action_mailbox/engine"
+# require "action_text/engine"
+# require "action_cable/engine"
+# require "sprockets/railtie"
 
 # Require the gems listed in Gemfile, including any gems
 # you've limited to :test, :development, or :production.
@@ -36,6 +37,9 @@ module ApiBotBackend
     # Middleware like session, flash, cookies can be added back manually.
     # Skip views, helpers and assets when generating a new resource.
     config.api_only = true
+    # TODO:
+    # config.middleware.use RoutesReloader
+
     config.autoload_paths << "#{Rails.root}/lib"
     config.eager_load_paths << "#{Rails.root}/lib"
   end
