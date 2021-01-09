@@ -9,6 +9,9 @@ gem 'puma', '~> 5.0'
 gem 'bootsnap', '>= 1.4.4', require: false
 gem 'rack-cors'
 gem 'pry'
+gem 'activerecord-import'
+gem 'rainbow'
+gem 'jsonapi-serializer'
 
 group :development do
   gem 'listen', '~> 3.3'

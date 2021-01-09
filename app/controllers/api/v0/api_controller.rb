@@ -1,5 +1,6 @@
 class Api::V0::ApiController < ApplicationController
   rescue_from Errors::ApplicationError, with: :render_runtime_error_response
+  # rescue_from StandardError, with: :render_runtime_error_response
 
   protected
 

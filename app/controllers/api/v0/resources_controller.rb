@@ -8,8 +8,10 @@ class Api::V0::ResourcesController < Api::V0::ApiController
   end
 
   def create
-    if Resources::Creator.call(resource_params)
-      render json: @resource, status: :created
+    @resource = Resources::Creator.call(resource_params)
+    if @resource
+      render json: ResourceSerializer.new(@resource).serializable_hash.to_json,
+             status: :created
     else
       render json: @resource.errors, status: :unprocessable_entity
     end
@@ -34,6 +36,8 @@ class Api::V0::ResourcesController < Api::V0::ApiController
   end
 
   def resource_params
-    params.permit(:resource_name, fields: [])
+    params.permit(:resource_name,
+                  fields: [:name, :physical_type, :logical_type,
+                           :default_value])
   end
 end
