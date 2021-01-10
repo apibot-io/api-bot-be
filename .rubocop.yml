@@ -17,3 +17,6 @@ Lint/MissingSuper:
 
 Style/RaiseArgs:
   Enabled: false
+
+Security/Eval:
+  Enabled: false

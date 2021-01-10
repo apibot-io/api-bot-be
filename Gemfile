@@ -12,6 +12,7 @@ gem 'pry'
 gem 'activerecord-import'
 gem 'rainbow'
 gem 'jsonapi-serializer'
+gem 'faker'
 
 group :development do
   gem 'listen', '~> 3.3'

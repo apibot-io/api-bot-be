@@ -15,7 +15,7 @@ class Field < ApplicationRecord
   LOGICAL_TYPES = {
     first_name: 0,
     last_name: 1,
-    full_name: 2,
+    name: 2,
     email: 3,
     address: 4,
     phone: 5

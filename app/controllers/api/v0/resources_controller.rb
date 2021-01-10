@@ -1,16 +1,19 @@
 class Api::V0::ResourcesController < Api::V0::ApiController
+  before_action :set_resource, only: [:show]
+
   def index
-    render json: Resource.all
+    @resources = Resource.all.includes(:fields)
+    render_jsonapi @resources, include: 'fields'
   end
 
   def show
-    render json: @resource
+    render_jsonapi @resource, include: 'fields'
   end
 
   def create
     @resource = Resources::Creator.call(resource_params)
     if @resource
-      render json: ResourceSerializer.new(@resource).serializable_hash.to_json,
+      render json: ResourceSerializer.new(@resource),
              status: :created
     else
       render json: @resource.errors, status: :unprocessable_entity

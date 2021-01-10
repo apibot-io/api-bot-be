@@ -2,9 +2,9 @@ class ResourceSerializer
   include JSONAPI::Serializer
   attributes :id, :name
 
-  attribute :resource do |resource|
-    FieldSerializer.new(resource.fields).as_json["data"]
-  end
+  # attribute :fields do |resource|
+  #   FieldSerializer.new(resource.fields).as_json["data"]
+  # end
 
-  has_many :fields
+  has_many :fields, serializer: FieldSerializer
 end

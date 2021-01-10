@@ -1,0 +1,3 @@
+class Apibot::FakeData
+  
+end
